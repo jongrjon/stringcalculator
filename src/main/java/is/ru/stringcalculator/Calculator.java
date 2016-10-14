@@ -6,6 +6,9 @@ public class Calculator {
 		if(text.equals("")){
 			return 0;
 		}
+		else if(text.contains("\n")){
+			return sum(splitNumbers(removeLine(text)));
+		}
 		else if(text.contains(",")){
 			return sum(splitNumbers(text));
 		}
@@ -27,6 +30,10 @@ public class Calculator {
 		    total += toInt(number);
 		}
 		return total;
+    }
+    private static String removeLine(String numbers){
+    	String noLines = numbers.replace("\n",",");
+    	return noLines;
     }
 
 
